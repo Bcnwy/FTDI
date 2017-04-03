@@ -38,7 +38,7 @@ namespace Usart
                 {
                     bSave = true;
                     string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
-                    Console.Write("\nLocation to Save file:\n" + directory);
+                    Console.Write("\nName of file:\n" + directory);
                     string filePath = (directory + Console.ReadLine() + ".csv");
                     Console.WriteLine("\nSave file set as:");
                     Console.WriteLine(filePath);
