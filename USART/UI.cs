@@ -23,7 +23,7 @@ namespace Usart
                 Console.WriteLine("             ******************************************");
                 Console.WriteLine("             *       Direct Access Usart Interface    *");
                 Console.WriteLine("             *       FTDI Only compatible             *");
-                Console.WriteLine("             *       version v1.1                     *");
+                Console.WriteLine("             *       version v1.1                   *");
                 Console.WriteLine("             ******************************************\n");
                 return 0;
             }
