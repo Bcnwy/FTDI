@@ -7,7 +7,7 @@ namespace Usart
     class Save
     {
         private string filePath;
-        private string Header =  "data" ;
+        private string Header =  "Data" ;
         //private string delimiter = ",";
         StringBuilder sb = new StringBuilder();
 

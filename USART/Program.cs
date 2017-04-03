@@ -194,17 +194,21 @@ namespace Usart
                     int[] iData = null;
                     RichFormatInput(readData,iData);
                     
-
-                        
-                    if(Menu.BSave)
-                    {                        
-                        myFile.SaveToFile(iData);                 
-                    }
                     /***Ben's Hardware***/
                     /*
                     BenFormatInput(readData);
                     Thread.Sleep(5);
                     */
+                        
+                    if(Menu.BSave)
+                    {
+                        //dirty check for null data TODO: add clean exception handler
+                        if (iData != null )
+                        {
+                            myFile.SaveToFile(iData);
+                            Console.WriteLine("Saved %hi Bytes to %s ", iData.Length, myFile.FilePath);
+                        }
+                    }
                 }       
             } while (Console.ReadKey().Key != ConsoleKey.Escape);
 
@@ -212,7 +216,7 @@ namespace Usart
             ftStatus = myFtdiDevice.Close();
 
             // Wait for a key press 
-            Console.WriteLine("Press any key to continue.");
+            Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
             return;
         }
@@ -225,8 +229,11 @@ namespace Usart
             char[] cData = readData.ToCharArray();
             for (int i = 0; i < cData.Length; i++)
             {
-               outputData[i] = ((int)cData[i]);
-               Console.WriteLine(outputData);
+                if (cData != null)
+                {
+                    outputData[i] = ((int)cData[i]);
+                    Console.WriteLine(outputData);
+                }
             }
         }
         private static void BenFormatInput(string readData)
